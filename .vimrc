@@ -125,6 +125,15 @@ map  <F11> :set relativenumber!<CR>
 imap <F11> <ESC>:set relativenumber!<CR>a
 vmap <F11> <ESC>:set relativenumber!<CR>gv
 nnoremap <F5> :UndotreeToggle<CR>
+
+" toggle spell checking in order to spell fix hit z=<num> when on a mis-splled
+" word on normal mode
+set spell spelllang=en_us
+set nospell
+map  <F10> :set spell!<CR>
+imap <F10> <ESC>:set nospell<CR>a
+vmap <F10> <ESC>:set nospell<CR>gv
+
 "plugins im using vim plug as my plugin manger
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
@@ -135,9 +144,17 @@ Plug 'mbbill/undotree'
 " Plug 'junegunn/seoul256.vim'
 Plug 'preservim/nerdtree'
 "Plug 'scrooloose/syntastic'
+"for python development
+Plug 'scrooloose/syntastic'
+Plug 'nvie/vim-flake8'
+
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
 " List ends here. Plugins become visible to Vim after this call.
+"
+Plug 'lervag/vimtex'
+
+Plug 'greyblake/vim-preview'
 call plug#end()
 "syntastic recomended setings
 "set statusline+=%#warningmsg#
@@ -158,3 +175,9 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
+
+
+" python
+let python_highlight_all=1
+syntax on
+
