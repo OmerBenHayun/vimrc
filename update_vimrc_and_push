@@ -1,0 +1,1 @@
+cp ~/.vimrc . -f && git checkout laptop && git pull && git add .vimrc && git commit -m "update vimrc" && git push
