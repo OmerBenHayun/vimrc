@@ -147,6 +147,8 @@ Plug 'preservim/nerdtree'
 "for python development
 Plug 'scrooloose/syntastic'
 Plug 'nvie/vim-flake8'
+Plug 'tpope/vim-surround'
+Plug 'chrisbra/vim-commentary'
 
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
@@ -181,3 +183,19 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 let python_highlight_all=1
 syntax on
 
+imap <f2> <c-o>:call ToggleHebrew()<cr>
+map <f2> :call ToggleHebrew()<cr>
+
+func! ToggleHebrew()
+  if &rl
+    set norl
+    set keymap=
+  else
+    set rl
+    set keymap=hebrew
+  end
+endfunc
+
+"write this in the futhure
+:map <C-j> ciw<C-r>0<ESC>
+:map <C-k> ciW<C-r>0<ESC>
