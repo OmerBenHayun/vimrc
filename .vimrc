@@ -149,6 +149,8 @@ Plug 'scrooloose/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'tpope/vim-surround'
 Plug 'chrisbra/vim-commentary'
+Plug 'tmhedberg/SimpylFold'
+"Plug 'ctrlpvim/ctrlp.vim'
 
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
@@ -157,6 +159,10 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-
 Plug 'lervag/vimtex'
 
 Plug 'greyblake/vim-preview'
+"for search within files
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'kien/ctrlp.vim'
 call plug#end()
 "syntastic recomended setings
 "set statusline+=%#warningmsg#
@@ -199,3 +205,19 @@ endfunc
 "write this in the futhure
 :map <C-j> ciw<C-r>0<ESC>
 :map <C-k> ciW<C-r>0<ESC>
+
+" for folding preview
+
+"let g:SimpylFold_docstring_preview=1
+"let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlP'
+"let g:ctrlp_working_path_mode = 'ra'
+"set wildignore+=*/tmp/*,*.so,*.swp,*.zip " MacOSX/Linux
+"set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+"let g:ctrlp_custom_ignore = {
+"  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+"  \ 'file': '\v\.(exe|so|dll)$',
+"  \ 'link': 'some_bad_symbolic_links',
+"  \ }
+map  <C-x> :Ag<CR>
