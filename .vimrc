@@ -121,9 +121,9 @@ nnoremap <space> za
 set foldmethod=indent   " fold based on indent level
 
 " toggle between number and relativenumber
-map  <F11> :set relativenumber!<CR>
-imap <F11> <ESC>:set relativenumber!<CR>a
-vmap <F11> <ESC>:set relativenumber!<CR>gv
+map  <F9> :set relativenumber!<CR>
+imap <F9> <ESC>:set relativenumber!<CR>a
+vmap <F9> <ESC>:set relativenumber!<CR>gv
 nnoremap <F5> :UndotreeToggle<CR>
 
 " toggle spell checking in order to spell fix hit z=<num> when on a mis-splled
@@ -163,6 +163,8 @@ Plug 'greyblake/vim-preview'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'kien/ctrlp.vim'
+
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 call plug#end()
 "syntastic recomended setings
 "set statusline+=%#warningmsg#
@@ -220,4 +222,9 @@ endfunc
 "  \ 'file': '\v\.(exe|so|dll)$',
 "  \ 'link': 'some_bad_symbolic_links',
 "  \ }
-map  <C-x> :Ag<CR>
+map  <C-z> :Ag<CR>
+
+"python string formatter
+"You can set built-in formatters:'sphinx', 'numpy', 'google'.
+let g:pydocstring_formatter = 'google'
+nmap <silent> <C-d> <Plug>(pydocstring)
