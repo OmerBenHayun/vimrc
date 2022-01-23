@@ -130,9 +130,9 @@ nnoremap <F5> :UndotreeToggle<CR>
 " word on normal mode
 set spell spelllang=en_us
 set nospell
-map  <F10> :set spell!<CR>
-imap <F10> <ESC>:set nospell<CR>a
-vmap <F10> <ESC>:set nospell<CR>gv
+map  <F3> :set spell!<CR>
+imap <F3> <ESC>:set nospell<CR>a
+vmap <F3> <ESC>:set nospell<CR>gv
 
 "plugins im using vim plug as my plugin manger
 " Plugins will be downloaded under the specified directory.
@@ -165,6 +165,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'kien/ctrlp.vim'
 
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+Plug 'tpope/vim-fugitive'
 call plug#end()
 "syntastic recomended setings
 "set statusline+=%#warningmsg#
@@ -228,3 +229,13 @@ map  <C-z> :Ag<CR>
 "You can set built-in formatters:'sphinx', 'numpy', 'google'.
 let g:pydocstring_formatter = 'google'
 nmap <silent> <C-d> <Plug>(pydocstring)
+
+" Fugitive Conflict Resolution
+nnoremap <leader>ghd :Gdiffsplit!<CR>
+nnoremap <leader>gvd :Gvdiffsplit!<CR>
+
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
+
+nnoremap gdk :diffget //2<CR>
+nnoremap gdj :diffget //3<CR>
